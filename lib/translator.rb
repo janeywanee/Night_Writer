@@ -1,4 +1,6 @@
-class Dictionary
+require 'pry'
+
+class Translator
 
   def initialize
     @dictionary = {
@@ -31,12 +33,21 @@ class Dictionary
                    }
   end
 
-  def number_of_keys
-   @dictionary.length
+
+
+  def dictionary?
+    true
   end
 
   def class_check
     @dictionary.class
+  end
+
+  def to_braille(key)
+    values = @dictionary.values
+    values[0]
     binding.pry
   end
+
+
 end

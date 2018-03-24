@@ -11,6 +11,12 @@ class DictionaryTest < MiniTest::Test
     assert_instance_of Dictionary, dictionary
   end
 
+  def test_dictionary_is__a_hash
+    dictionary = Dictionary.new
+
+    assert_equal Hash, dictionary.class_check
+  end
+
   def test_it_has_26_key_value_pairs
     dictionary = Dictionary.new
 
