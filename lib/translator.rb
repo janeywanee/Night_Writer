@@ -29,7 +29,8 @@ class Translator
                    "w" => [".0","00",".0"],
                    "x" => ["00","..","00"],
                    "y" => ["00",".0","00"],
-                   "z" => ["0.",".0","00"]
+                   "z" => ["0.",".0","00"],
+                   " " => ["..","..",".."]
                    }
   end
 
@@ -43,11 +44,17 @@ class Translator
     @dictionary.class
   end
 
-  def to_braille(key)
-    values = @dictionary.values
-    values[0]
-    binding.pry
+  def to_braille(word)
+    array = word.split("")
+    # binding.pry
+    eng_to_bra = array.map do |letter|
+      # binding.pry
+      @dictionary[letter]
+    end
+    eng_to_bra
+    # binding.pry
   end
+
 
 
 end
