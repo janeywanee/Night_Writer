@@ -25,10 +25,22 @@ class TranslatorTest <MiniTest::Test
     end
 
   def test_it_can_translate_a_letter_to_braille
+    skip
     translator = Translator.new
 
     assert_equal ["0.","..",".."], translator.to_braille("a")
-    # assert_equal ["0.","..",".."], translator.to_braille.join[:a]
+  end
+
+  def test_it_can_translate_a_word_to_braille
+    translator = Translator.new
+
+    assert_equal [["00",".0",".."],["0.",".0","0."],["00","00",".."]], translator.to_braille("dog")
+  end
+
+  def test_it_can_tranlate_with_a_space
+    translator = Translator.new
+
+      assert_equal [[".0","00",".0"],["0.",".0",".."],["..","..",".."],["00","..",".."],["0.","..",".."],["00",".0","0."]], translator.to_braille("we can")
   end
 
 
