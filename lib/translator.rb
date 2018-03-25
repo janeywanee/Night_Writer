@@ -44,9 +44,20 @@ class Translator
 
   def to_braille(word)
     line = word.split("")
-    eng_to_bra = line.map do |letter|
+    text_to_braille = line.map do |letter|
       @dictionary[letter]
     end
-    eng_to_bra
+    text_to_braille
   end
 end
+
+
+### going to stop the translator here with the idea of including the format methods in the reader/writer files.
+  # def to_format(word)
+  #   braille_form = to_braille(word).each do |letter|
+  #   # braille_form[0]
+  #   letter.each do |x|
+  #   x
+  #   end
+  #   end
+  # end
