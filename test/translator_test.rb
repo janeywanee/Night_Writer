@@ -53,7 +53,7 @@ class TranslatorTest <MiniTest::Test
 
     assert_equal expected, actual
 
-
+# need to figure out how to get array into braille format 2x3
   end
 
 
