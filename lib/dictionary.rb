@@ -37,6 +37,5 @@ class Dictionary
 
   def class_check
     @dictionary.class
-    binding.pry
   end
 end
