@@ -46,13 +46,16 @@ class Translator
 
   def to_braille(word)
     array = word.split("")
-    # binding.pry
     eng_to_bra = array.map do |letter|
-      # binding.pry
       @dictionary[letter]
     end
     eng_to_bra
-    # binding.pry
+
+  end
+
+  def bra_format(word)
+    variable =
+
   end
 
 
