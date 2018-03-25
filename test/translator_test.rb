@@ -37,19 +37,10 @@ class TranslatorTest <MiniTest::Test
   end
 end
 
-#
-#   # def test_it_can_produce_three_lines_output_for_every_one_line_input
-#   #   skip
-#   #   translator = Translator.new
-#   #   actual = translator.bra_format("a")
-#   #   expected = [
-#   #             "0.",
-#   #             "..",
-#   #             ".."
-#   #                   ]
-#   #
-#   #   assert_equal expected, actual
-#   # end
-#
-# # need to figure out how to get array into braille format 2x3
-#
+### going to stop the translator here with the idea of including the format methods in the reader/writer files.
+
+  # def test_it_can_produce_three_lines_output_for_every_one_line_input
+  #   translator = Translator.new
+  #   translator.to_braille("a")
+  #   assert_equal "\n0.\n..\n..", translator.to_format("a")
+  # end
