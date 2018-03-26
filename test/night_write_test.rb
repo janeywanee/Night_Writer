@@ -36,13 +36,16 @@ class NightWriterTest < MiniTest::Test
     night_write = NightWriter.new
       assert_equal [[".0","0.",".."],["..","..",".."],["0.","..",".."],["00","..","0."]], night_write.to_braille("i am")
   end
+
+    def test_it_can_produce_braille_format_line_one
+      night_write = NightWriter.new
+      assert_equal "0.", night_write.to_format("a")
+    end
+
+    def test_it_can_product_braille_format_three_lines
+      night_write = NightWriter.new
+      assert_equal "0."
+                   "..",
+                   "..", night_write.to_format("a")
+    end
 end
-
-### going to stop the night_write here with the idea of including the format methods in the reader/writer files.
-
-  # def
-  #skip #test_it_can_produce_three_lines_output_for_every_one_line_input
-  #   night_write = NightWriter.new
-  #   night_write.to_braille("a")
-  #   assert_equal "\n0.\n..\n..", night_write.to_format("a")
-  # end
