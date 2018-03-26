@@ -48,15 +48,13 @@ class NightWriter
     end
     text_to_braille
   end
+
+  def to_format(letter)
+    x = to_braille(letter)
+    line_1 = ""
+    if line_1.empty?
+      line_1 << x[0][0]
+    end
+      line_1
+  end
 end
-
-
-### going to stop the translator here with the idea of including the format methods in the reader/writer files.
-  # def to_format(word)
-  #   braille_form = to_braille(word).each do |letter|
-  #   # braille_form[0]
-  #   letter.each do |x|
-  #   x
-  #   end
-  #   end
-  # end
