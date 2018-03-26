@@ -42,10 +42,8 @@ class NightWriterTest < MiniTest::Test
       assert_equal "0.", night_write.to_format("a")
     end
 
-    def test_it_can_product_braille_format_three_lines
+    def test_it_can_produce_three_lines_for_single_letter
       night_write = NightWriter.new
-      assert_equal "0."
-                   "..",
-                   "..", night_write.to_format("a")
+      assert_equal "\n0.""\n..""\n..", night_write.to_format("a")
     end
 end
