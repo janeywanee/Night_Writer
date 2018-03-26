@@ -50,11 +50,24 @@ class NightWriter
   end
 
   def to_format(letter)
-    x = to_braille(letter)
-    line_1 = ""
-    if line_1.empty?
-      line_1 << x[0][0]
-    end
+
+    braille = to_braille(letter)
+    line_1 = []
+    line_2 = []
+    line_3 = []
+      if line_1.empty?
+        line_1 << braille[0][0]
+      elsif line_2.empty?
+        line_2 << braille[0][1]
+      elsif line_3.empty?
+        line_3 << braille[0][2]
+          binding.pry
+      end
       line_1
+      line_2
+      line_3
   end
+
+
+
 end
