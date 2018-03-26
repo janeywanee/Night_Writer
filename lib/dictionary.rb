@@ -1,5 +1,7 @@
 class Dictionary
 
+ attr_reader :dictionary
+
   def initialize
     @dictionary = {
                    "a" => ["0.","..",".."],
@@ -28,7 +30,7 @@ class Dictionary
                    "x" => ["00","..","00"],
                    "y" => ["00",".0","00"],
                    "z" => ["0.",".0","00"]
-                   }
+                 }
   end
 
   def number_of_keys
