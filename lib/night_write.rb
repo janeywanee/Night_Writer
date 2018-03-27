@@ -2,7 +2,7 @@
 require 'pry'
 require_relative 'dictionary'
 
-class NightWriter
+class NightWrite
 
  attr_reader :dictionary, :output
 
