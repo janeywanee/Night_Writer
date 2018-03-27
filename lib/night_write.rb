@@ -1,53 +1,4 @@
-<<<<<<< HEAD
-require_relative './translator'
 
-class NightWriter
-end
-
-lines_of_text = File.open(ARGV[0], r)
-to_translate = File.read.(lines)
-
-
-
-# require_relative "./enigma.rb"
-# require "date"
-#
-#
-# text = File.open(ARGV[0], "r")
-#
-# enigma = Enigma.new
-#
-# encryption_file = File.open(ARGV[1], "w")
-# encryption_file.write(enigma.encrypt(message))
-# encryption_file.close
-#
-# puts "Created 'encrypted.txt' with the key #{enigma.offset.key} and #{Date.today}"
-
-
-
-
-
-
-
-
-
-
-
-
-# handle = File.open(ARGV[0], "r")
-#
-# incoming_message = handle.read
-#
-# handle.close
-#
-# braille_text = incoming_message.upcase
-#
-# writer = File.open(ARGV[1], "w")
-#
-# writer.write(braille_text)
-#
-# writer.close
-=======
 require 'pry'
 require_relative 'dictionary'
 
@@ -96,29 +47,48 @@ class NightWriter
     text_to_braille = line.map do |letter|
       @dictionary[letter]
     end
-    text_to_braille
   end
 
-  def to_format(letter)
+  def line_one(letter)
+    line_one = []
+    line_one << to_braille(letter)[0][0]
+    line_one
+  end
 
-    braille = to_braille(letter)
-    line_1 = []
-    line_2 = []
-    line_3 = []
-      if line_1.empty?
-        line_1 << braille[0][0]
-      elsif line_2.empty?
-        line_2 << braille[0][1]
-      elsif line_3.empty?
-        line_3 << braille[0][2]
-          binding.pry
-      end
-      line_1
-      line_2
-      line_3
+  def line_two(letter)
+    line_two = []
+    line_two << to_braille(letter)[0][1]
+    line_two
+  end
+
+  def line_three(letter)
+    line_three = []
+    line_three << to_braille(letter)[0][2]
+    line_three
   end
 
 
+  # def to_format(letter)
+  #   braille = to_braille(letter).flatten
+  #   line_1 = []
+  #   line_2 = []
+  #   line_3 = []
+  #   braille.each_with_index do |string, index|
+  #     if index == 0
+  #       line_1 << string
+  #       line_1 << "\n"
+  #       line_1.join
+  #     elsif index == 1
+  #       line_2 << string
+  #       line_2 << "\n"
+  #       line_2.join
+  #     else index == 2
+  #       line_3 << string
+  #       line_3 << "\n"
+  #       line_3.join
+  #     end
+  #   end
+  #   array = []
 
+  # end
 end
->>>>>>> 0db3c51bcc2790a59c9a777f1adf8b65d4212f71

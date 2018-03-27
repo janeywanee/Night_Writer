@@ -4,26 +4,12 @@ require './lib/night_write'
 require './lib/dictionary'
 require 'pry'
 
-<<<<<<< HEAD
-class NightWriter < Minitest::Test
-
-  def test_it_exists
-    night_write = NightWriter.new
-
-    assert night_write.filereader
-  end
-
-  def test_it_can_create_an_instance_translator
-    night_write = NightWriter.new
-
-    assert_instance_of Translator, Translator.new
-=======
 class NightWriterTest < MiniTest::Test
 
   def test_it_exists
     night_write = NightWriter.new
     assert_instance_of NightWriter, night_write
->>>>>>> 0db3c51bcc2790a59c9a777f1adf8b65d4212f71
+
   end
 
   def test_instance_of_dictionary
@@ -35,6 +21,7 @@ class NightWriterTest < MiniTest::Test
     night_write = NightWriter.new
     assert night_write.dictionary?
   end
+
 
   def test_it_can_translate_a_letter_to_braille
     night_write = NightWriter.new
@@ -52,13 +39,29 @@ class NightWriterTest < MiniTest::Test
       assert_equal [[".0","0.",".."],["..","..",".."],["0.","..",".."],["00","..","0."]], night_write.to_braille("i am")
   end
 
-    def test_it_can_produce_braille_format_line_one
-      night_write = NightWriter.new
-      assert_equal "0.", night_write.to_format("a")
-    end
+  def test_it_can_produce_braille_format_line_one
+    night_write = NightWriter.new
+    assert_equal ["0."], night_write.line_one("a")
+  end
 
-    def test_it_can_produce_three_lines_for_single_letter
-      night_write = NightWriter.new
-      assert_equal "\n0.""\n..""\n..", night_write.to_format("a")
-    end
+  def test_it_can_produce_braille_format_line_two
+    night_write = NightWriter.new
+    assert_equal [".."], night_write.line_two("a")
+  end
+
+  def test_it_can_produce_braille_format_line_three
+    night_write = NightWriter.new
+    assert_equal [".."], night_write.line_three("a")
+  end
+
+  def test_it_can_format_a_word_into_lines
+    night_write = NightWriter.new
+
+    assert_equal ["00", "0."]
+  end
+
+  # def test_it_can_produce_three_lines_for_single_letter
+  #   night_write = NightWriter.new
+  #   assert_equal "0.\n""..\n""..\n", night_write.to_format("a")
+  # end
 end
