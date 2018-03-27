@@ -33,6 +33,11 @@ class NightWriterTest < MiniTest::Test
     assert_equal [["0.","..",".."], ["..","..",".."], ["0.","0.",".."]], night_write.to_braille
   end
 
+  def test_it_can_translate_traditional_punctuation
+    night_write = NightWriter.new(".")
+    assert_equal [["..","00",".0"]], night_write.to_braille
+  end
+
   def test_it_can_produce_braille_format_line_one
     night_write = NightWriter.new("dog")
     assert_equal "000.00", night_write.line_one
