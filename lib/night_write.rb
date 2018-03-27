@@ -1,73 +1,17 @@
+require './lib/night_writer'
+ARGV[0]
+f = File.open('./lib/message.txt', 'r')
+input = f.read.delete("\n")
+f.close
 
-require 'pry'
-require_relative 'dictionary'
+f.close
+night_write = NightWriter.new(input)
+night_write.to_braille
+night_write.line_one
+night_write.line_two
+night_write.line_three
+night_write.update_output
 
-class NightWriter
-
- attr_reader :dictionary
-
-  def initialize(text)
-    @dictionary = Dictionary.new
-    @text = text
-  end
-
-  def dictionary?
-    true
-  end
-
-  def to_braille
-    line = @text.split("")
-    text_to_braille = line.map do |letter|
-      @dictionary.library[letter]
-    end
-  end
-
-  def line_one
-    line_1 = to_braille.reduce([]) do |array, element|
-      array << element[0]
-    end
-  end
-
-  def line_two
-    line_2 = to_braille.reduce([]) do |array, element|
-      array << element[1]
-    end
-  end
-
-  def line_three
-    line_3 = to_braille.reduce([]) do |array, element|
-      array << element[2]
-    end
-  end
-
-  # def line_three(letter)
-  #   line_three = []
-  #   line_three << to_braille(letter)[0][2]
-  #   line_three
-  # end
-
-
-  # def to_format(letter)
-  #   braille = to_braille(letter).flatten
-  #   line_1 = []
-  #   line_2 = []
-  #   line_3 = []
-  #   braille.each_with_index do |string, index|
-  #     if index == 0
-  #       line_1 << string
-  #       line_1 << "\n"
-  #       line_1.join
-  #     elsif index == 1
-  #       line_2 << string
-  #       line_2 << "\n"
-  #       line_2.join
-  #     else index == 2
-  #       line_3 << string
-  #       line_3 << "\n"
-  #       line_3.join
-  #     end
-  #   end
-  #   array = []
-
-  # end
-end
+f = File.new('./lib/braille.txt', 'w')
+f.puts(night_write.output)
+f.close
