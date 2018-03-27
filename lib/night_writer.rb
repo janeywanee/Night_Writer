@@ -14,6 +14,7 @@ class NightWriter
 
   def dictionary?
     true
+    # return true if @dictionary.is_a?(Dictionary)
   end
 
   def to_braille
@@ -39,7 +40,7 @@ class NightWriter
     line_3 = to_braille.reduce([]) do |array, element|
       array << element[2]
     end.join
-    # binding.pry
+
   end
 
   def update_output

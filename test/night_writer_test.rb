@@ -41,7 +41,6 @@ class NightWriterTest < MiniTest::Test
   end
 
   def test_it_can_produce_braille_format_line_two
-
     night_write = NightWriter.new("dog")
     assert_equal ".0.000", night_write.line_two
   end
@@ -59,6 +58,7 @@ class NightWriterTest < MiniTest::Test
     puts night_write.output
 
   end
+end
 
 
 
@@ -83,4 +83,3 @@ class NightWriterTest < MiniTest::Test
   #   night_write = NightWriter.new
   #   assert_equal "0.\n""..\n""..\n", night_write.to_format("a")
   # end
-end
