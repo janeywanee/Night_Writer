@@ -1,124 +1,75 @@
-<<<<<<< HEAD
-require_relative './translator'
 
-class NightWriter
-end
-
-lines_of_text = File.open(ARGV[0], r)
-to_translate = File.read.(lines)
-
-
-
-# require_relative "./enigma.rb"
-# require "date"
-#
-#
-# text = File.open(ARGV[0], "r")
-#
-# enigma = Enigma.new
-#
-# encryption_file = File.open(ARGV[1], "w")
-# encryption_file.write(enigma.encrypt(message))
-# encryption_file.close
-#
-# puts "Created 'encrypted.txt' with the key #{enigma.offset.key} and #{Date.today}"
-
-
-
-
-
-
-
-
-
-
-
-
-# handle = File.open(ARGV[0], "r")
-#
-# incoming_message = handle.read
-#
-# handle.close
-#
-# braille_text = incoming_message.upcase
-#
-# writer = File.open(ARGV[1], "w")
-#
-# writer.write(braille_text)
-#
-# writer.close
-=======
 require 'pry'
 require_relative 'dictionary'
 
 class NightWriter
 
- attr_reader :dictionary
+ attr_reader :dictionary, :output
 
-  def initialize
-    @dictionary = {
-                   "a" => ["0.","..",".."],
-                   "b" => ["0.","0.",".."],
-                   "c" => ["00","..",".."],
-                   "d" => ["00",".0",".."],
-                   "e" => ["0.",".0",".."],
-                   "f" => ["00","0.",".."],
-                   "g" => ["00","00",".."],
-                   "h" => ["0.","00",".."],
-                   "i" => [".0","0.",".."],
-                   "j" => [".0","00",".."],
-                   "k" => ["0.","..","0."],
-                   "l" => ["0.","0.","0."],
-                   "m" => ["00","..","0."],
-                   "n" => ["00",".0","0."],
-                   "o" => ["0.",".0","0."],
-                   "p" => ["00","0.","0."],
-                   "q" => ["00","00","0."],
-                   "r" => ["0.","00","0."],
-                   "s" => [".0","0.","0."],
-                   "t" => [".0","00","0."],
-                   "u" => ["0.","..","00"],
-                   "v" => ["0.","0.","00"],
-                   "w" => [".0","00",".0"],
-                   "x" => ["00","..","00"],
-                   "y" => ["00",".0","00"],
-                   "z" => ["0.",".0","00"],
-                   " " => ["..","..",".."]
-                 }
+  def initialize(text)
+    @dictionary = Dictionary.new
+    @text = text
+    @output = ""
   end
 
-  def dictionary?
-    true
-  end
-
-  def to_braille(letter)
-    line = letter.split("")
+  def to_braille
+    line = @text.split("")
     text_to_braille = line.map do |letter|
-      @dictionary[letter]
+      @dictionary.library[letter]
     end
-    text_to_braille
   end
 
-  def to_format(letter)
-
-    braille = to_braille(letter)
-    line_1 = []
-    line_2 = []
-    line_3 = []
-      if line_1.empty?
-        line_1 << braille[0][0]
-      elsif line_2.empty?
-        line_2 << braille[0][1]
-      elsif line_3.empty?
-        line_3 << braille[0][2]
-          binding.pry
-      end
-      line_1
-      line_2
-      line_3
+  def line_one
+    line_1 = to_braille.reduce([]) do |array, element|
+      array << element[0]
+    end.join
   end
 
+  def line_two
+    line_2 = to_braille.reduce([]) do |array, element|
+      array << element[1]
+    end.join
+  end
 
+  def line_three
+    line_3 = to_braille.reduce([]) do |array, element|
+      array << element[2]
+    end.join
 
+  end
+
+  def update_output
+    @output << line_one + "\n" + line_two + "\n" + line_three + "\n"
+  end
 end
->>>>>>> 0db3c51bcc2790a59c9a777f1adf8b65d4212f71
+
+  # def line_three(letter)
+  #   line_three = []
+  #   line_three << to_braille(letter)[0][2]
+  #   line_three
+  # end
+
+
+  # def to_format(letter)
+  #   braille = to_braille(letter).flatten
+  #   line_1 = []
+  #   line_2 = []
+  #   line_3 = []
+  #   braille.each_with_index do |string, index|
+  #     if index == 0
+  #       line_1 << string
+  #       line_1 << "\n"
+  #       line_1.join
+  #     elsif index == 1
+  #       line_2 << string
+  #       line_2 << "\n"
+  #       line_2.join
+  #     else index == 2
+  #       line_3 << string
+  #       line_3 << "\n"
+  #       line_3.join
+  #     end
+  #   end
+  #   array = []
+
+  # end
