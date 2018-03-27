@@ -6,66 +6,45 @@ class NightWriter
 
  attr_reader :dictionary
 
-  def initialize
-    @dictionary = {
-                   "a" => ["0.","..",".."],
-                   "b" => ["0.","0.",".."],
-                   "c" => ["00","..",".."],
-                   "d" => ["00",".0",".."],
-                   "e" => ["0.",".0",".."],
-                   "f" => ["00","0.",".."],
-                   "g" => ["00","00",".."],
-                   "h" => ["0.","00",".."],
-                   "i" => [".0","0.",".."],
-                   "j" => [".0","00",".."],
-                   "k" => ["0.","..","0."],
-                   "l" => ["0.","0.","0."],
-                   "m" => ["00","..","0."],
-                   "n" => ["00",".0","0."],
-                   "o" => ["0.",".0","0."],
-                   "p" => ["00","0.","0."],
-                   "q" => ["00","00","0."],
-                   "r" => ["0.","00","0."],
-                   "s" => [".0","0.","0."],
-                   "t" => [".0","00","0."],
-                   "u" => ["0.","..","00"],
-                   "v" => ["0.","0.","00"],
-                   "w" => [".0","00",".0"],
-                   "x" => ["00","..","00"],
-                   "y" => ["00",".0","00"],
-                   "z" => ["0.",".0","00"],
-                   " " => ["..","..",".."]
-                 }
+  def initialize(text)
+    @dictionary = Dictionary.new
+    @text = text
   end
 
   def dictionary?
     true
   end
 
-  def to_braille(letter)
-    line = letter.split("")
+  def to_braille
+    line = @text.split("")
     text_to_braille = line.map do |letter|
-      @dictionary[letter]
+      @dictionary.library[letter]
     end
   end
 
-  def line_one(letter)
-    line_one = []
-    line_one << to_braille(letter)[0][0]
-    line_one
+  def line_one
+    line_1 = to_braille.reduce([]) do |array, element|
+      array << element[0]
+    end
   end
 
-  def line_two(letter)
-    line_two = []
-    line_two << to_braille(letter)[0][1]
-    line_two
+  def line_two
+    line_2 = to_braille.reduce([]) do |array, element|
+      array << element[1]
+    end
   end
 
-  def line_three(letter)
-    line_three = []
-    line_three << to_braille(letter)[0][2]
-    line_three
+  def line_three
+    line_3 = to_braille.reduce([]) do |array, element|
+      array << element[2]
+    end
   end
+
+  # def line_three(letter)
+  #   line_three = []
+  #   line_three << to_braille(letter)[0][2]
+  #   line_three
+  # end
 
 
   # def to_format(letter)
