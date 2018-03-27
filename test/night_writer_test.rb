@@ -12,11 +12,6 @@ class NightWriterTest < MiniTest::Test
 
   end
 
-  # def test_instance_of_dictionary
-  #   dictionary = Dictionary.new("a")
-  #   assert_instance_of Dictionary, dictionary
-  # end
-
   def test_access_to_dictionary
     night_write = NightWriter.new("a")
     assert night_write.dictionary?
@@ -53,7 +48,7 @@ class NightWriterTest < MiniTest::Test
 
   def test_it_can_produce_braille_format_line_three
     night_write = NightWriter.new("dog")
-    # assert_equal ["..", "0.", ".."], night_write.line_three
+     assert_equal "..0...", night_write.line_three
     night_write.to_braille
     night_write.line_one
     night_write.line_two
