@@ -26,16 +26,12 @@ class NightWrite
       end
     end
     split_text
-    # binding.pry
   end
 
   def to_braille
-  braille_code = capitalized_letters.map do |letter|
-    if letter == letter.downcase
+    braille_code = capitalized_letters.map do |letter|
       @dictionary.library[letter]
     end
-  end
-  braille_code
   end
 
   def line_one
@@ -54,7 +50,6 @@ class NightWrite
     line_3 = to_braille.inject([]) do |array, element|
       array << element[2]
     end.join
-    # binding.pry
   end
 
   def update_output

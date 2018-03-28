@@ -51,11 +51,7 @@ class NightWriteTest < MiniTest::Test
   def test_it_can_produce_braille_format_line_three
     night_write = NightWrite.new("dog")
      assert_equal "..0...", night_write.line_three
-    night_write.to_braille
-    night_write.line_one
-    night_write.line_two
-    night_write.line_three
-    night_write.update_output
+    
       # remove later
     puts night_write.output
   end
