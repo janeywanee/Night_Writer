@@ -60,8 +60,9 @@ class NightWriteTest < MiniTest::Test
     puts night_write.output
   end
 
-  # def test_it_can_translate_capital_letters
-  #   night_write = NightWrite.new("Dog")
-  #     assert_equal
-  # end
+  def test_it_can_translate_capital_letters
+    night_write = NightWrite.new("Dog")
+      assert_equal ["shift", "d", "o", "g"], night_write.capitalized_letters
+  end
+
 end

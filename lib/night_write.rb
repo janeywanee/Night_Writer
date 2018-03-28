@@ -12,12 +12,19 @@ class NightWrite
     @output = ""
   end
 
-  # def capitalized_letters
-  #   if @text == @text.capitalize
-  #
-  #     binding.pry
-  #   end
-  # end
+  def capitalized_letters
+    line = @text.split("")
+    split_text = []
+    line.each do |letter|
+      if letter == letter.upcase
+        split_text << "shift"
+        split_text << letter.downcase
+      else
+        split_text << letter
+      end
+    end
+    split_text
+  end
 
   def to_braille
     line = @text.split("")
