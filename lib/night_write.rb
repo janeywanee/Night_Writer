@@ -4,12 +4,12 @@ require_relative 'dictionary'
 
 class NightWrite
 
- attr_reader :dictionary, :output
+ attr_reader :dictionary
 
   def initialize(text)
     @dictionary = Dictionary.new
     @text = text
-    @output = ""
+    # @output = ""
   end
 
   def capitalized_letters
@@ -24,13 +24,12 @@ class NightWrite
         split_text << "shift"
         split_text << letter.downcase
       end
-      binding.pry
     end
     split_text
   end
 
   def to_braille
-    braille_code = capitalized_letters.map do |letter|
+    capitalized_letters.map do |letter|
       @dictionary.library[letter]
     end
   end
