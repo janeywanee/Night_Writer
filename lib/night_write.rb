@@ -24,6 +24,7 @@ class NightWrite
         split_text << "shift"
         split_text << letter.downcase
       end
+      binding.pry
     end
     split_text
   end
