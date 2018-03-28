@@ -7,7 +7,7 @@ input = lines_of_text.read.delete("\n")
 num_of_characters = input.length
 lines_of_text.close
 
-night_write = NightWriter.new(input)
+night_write = NightWrite.new(input)
 night_write.to_braille
 night_write.line_one
 night_write.line_two

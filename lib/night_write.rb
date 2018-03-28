@@ -12,6 +12,13 @@ class NightWrite
     @output = ""
   end
 
+  # def capitalized_letters
+  #   if @text == @text.capitalize
+  #
+  #     binding.pry
+  #   end
+  # end
+
   def to_braille
     line = @text.split("")
     text_to_braille = line.map do |letter|

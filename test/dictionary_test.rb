@@ -20,6 +20,6 @@ class DictionaryTest < MiniTest::Test
   def test_it_has_26_key_value_pairs
     dictionary = Dictionary.new
 
-    assert_equal 27, dictionary.number_of_keys
+    assert_equal 28, dictionary.number_of_keys
   end
 end
