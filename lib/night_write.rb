@@ -12,16 +12,25 @@ class NightWrite
     @output = ""
   end
 
-  # def capitalized_letters
-  #   if @text == @text.capitalize
-  #
-  #     binding.pry
-  #   end
-  # end
+  def capitalized_letters
+    line = @text.split('')
+    split_text = []
+    line.each do |letter|
+      if
+        letter == letter.downcase
+        split_text << letter
+      elsif
+        letter == letter.upcase
+        split_text << "shift"
+        split_text << letter.downcase
+      end
+      binding.pry
+    end
+    split_text
+  end
 
   def to_braille
-    line = @text.split("")
-    text_to_braille = line.map do |letter|
+    braille_code = capitalized_letters.map do |letter|
       @dictionary.library[letter]
     end
   end
@@ -45,6 +54,6 @@ class NightWrite
   end
 
   def update_output
-    @output << line_one + "\n" + line_two + "\n" + line_three + "\n"
+     "#{line_one}\n#{line_two}\n#{line_three}"
   end
 end
