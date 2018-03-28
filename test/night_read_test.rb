@@ -18,15 +18,10 @@ class NightReadTest < MiniTest::Test
   end
 
   def test_it_can_translate_a_single_letter_braille_to_text
-    night_read = NightRead.new(["0.","..",".."])
+    night_read = NightRead.new("0.\n..\n..")
     assert_equal "a", night_read.to_text
   end
 
-  def test_it_can_translate_a_word_braille_to_text
-    skip
-    night_read = NightRead.new([["00","..",".."],["0.","..",".."],[".0","00","0."]])
-    assert_equal "cat", night_read.to_text
-  end
 
 
 end
