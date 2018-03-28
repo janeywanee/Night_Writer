@@ -9,7 +9,6 @@ class NightWrite
   def initialize(text)
     @dictionary = Dictionary.new
     @text = text
-    # @output = ""
   end
 
   def capitalized_letters
@@ -53,7 +52,7 @@ class NightWrite
   end
 
   def update_output
-     "#{line_one}\n#{line_two}\n#{line_three}"
+    "#{line_one}\n#{line_two}\n#{line_three}"
   end
 
   def character_limit(line)

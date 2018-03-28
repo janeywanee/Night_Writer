@@ -51,11 +51,10 @@ class NightWriteTest < MiniTest::Test
   def test_it_can_produce_braille_format_line_three
     night_write = NightWrite.new("dog")
      assert_equal "..0...", night_write.line_three
-
-      # remove later
-    # puts night_write.output
   end
-
+        # remove later
+      # puts night_write.output
+      
   def test_it_can_translate_capital_letters
     night_write = NightWrite.new("Dog")
     assert_equal ["shift", "d", "o", "g"], night_write.capitalized_letters
