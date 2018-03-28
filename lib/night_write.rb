@@ -55,4 +55,12 @@ class NightWrite
   def update_output
      "#{line_one}\n#{line_two}\n#{line_three}"
   end
+
+  def character_limit(line)
+    if line.length >= 80
+      line.insert(80,"\n")
+    else
+    line
+    end
+  end
 end

@@ -75,4 +75,19 @@ class NightWriteTest < MiniTest::Test
     night_write = NightWrite.new("Dog")
     assert_equal "..000.00\n...0.000\n.0..0...", night_write.update_output
   end
+
+  def test_it_can_support_character_limit
+    night_write = NightWrite.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    line_one = night_write.line_one
+    line_two = night_write.line_two
+    line_three = night_write.line_three
+
+    assert_equal  "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.", night_write.character_limit(line_one)
+
+    assert_equal "................................................................................\n..........................................................................................", night_write.character_limit(line_two)
+
+    assert_equal "................................................................................\n..........................................................................................", night_write.character_limit(line_three)
+
+  end
+
 end
