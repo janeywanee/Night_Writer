@@ -53,7 +53,7 @@ class NightWriteTest < MiniTest::Test
      assert_equal "..0...", night_write.line_three
 
       # remove later
-    puts night_write.output
+    # puts night_write.output
   end
 
   def test_it_can_translate_capital_letters
