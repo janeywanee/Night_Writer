@@ -22,8 +22,4 @@ class TranslateToEnglishTest < MiniTest::Test
     assert_equal "a", translate_to_english.get_key
   end
 
-  def test_it_can_translate_a_word_braille_to_english
-    translate_to_english = TranslateToEnglish.new(["0.", "..", ".."],[".0","00","0."])
-    assert_equal "at", translate_to_english.get_key
-  end
 end
