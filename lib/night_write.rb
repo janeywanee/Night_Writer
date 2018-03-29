@@ -53,6 +53,7 @@ class NightWrite
   end
 
   def update_output
-     "#{line_one}\n#{line_two}\n#{line_three}"
+     output = "#{line_one}\n#{line_two}\n#{line_three}"
   end
+
 end
