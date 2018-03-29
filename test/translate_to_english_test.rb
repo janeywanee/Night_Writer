@@ -8,15 +8,25 @@ require 'pry'
 class TranslateToEnglishTest < MiniTest::Test
 
   def test_it_exists
-    translate_to_english = TranslateToEnglish.new(["0.","..",".."])
+    translate_to_english = TranslateToEnglish.new("0.\n..\n..")
     assert_instance_of TranslateToEnglish, translate_to_english
   end
 
-  def test_it_is_braille
-    translate_to_english = TranslateToEnglish.new(["0.","..",".."])
-    assert_equal "a", translate_to_english.braille
+  def test_it_can_remove_newline_characters
+    translate_to_english = TranslateToEnglish.new("0.\n..\n..")
+    assert_equal ["0.", "..", ".."], translate_to_english.remove_new_line
   end
+
+  def test_it_can_call_key_using_value
+    translate_to_english = TranslateToEnglish.new(["0.", "..", ".."])
+    assert_equal "a", translate_to_english.get_key
+  end
+
+  # def test_it_can_translate_single_braille_letter_to_english
+  #   translate_to_english = TranslateToEnglish.new(["0.", "..", ".."])
+  #   assert_equal "a", translate_to_english.to_english
+  # end
+
 
 
 end
- 
