@@ -52,8 +52,6 @@ class TranslateToBrailleTest < MiniTest::Test
     translate_to_braille = TranslateToBraille.new("dog")
      assert_equal "..0...", translate_to_braille.line_three
   end
-        # remove later
-      # puts translate_to_braille.output
 
   def test_it_can_translate_capital_letters
     translate_to_braille = TranslateToBraille.new("Dog")
