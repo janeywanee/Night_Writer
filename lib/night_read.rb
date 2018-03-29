@@ -1,41 +1,17 @@
-require_relative 'dictionary'
+require './lib/translate_to_english'
 require 'pry'
 
-class NightRead
- attr_reader :braille,
-             :dictionary
 
-  def initialize(braille)
-    @braille = braille
-    @dictionary = Dictionary.new
-  end
+lines_of_braille = File.open('./lib/braille.txt', 'r')
+input = lines_of_braille.read.delete("\n")
+num_of_characters = input.length
+lines_of_text.close
 
- def to_text
-   braille_to_text = @dictionary.library.key(@braille)
- end
+translate_to_english = TranslateToEnglish.new(input)
 
- #
- # def line_one
- #   line_1 = to_braille.inject([]) do |array, element|
- #     array << element[0]
- #   end.join
- # end
- #
- # def line_two
- #   line_2 = to_braille.inject([]) do |array, element|
- #     array << element[1]
- #   end.join
- # end
- #
- # def line_three
- #   line_3 = to_braille.inject([]) do |array, element|
- #     array << element[2]
- #   end.join
- # end
- #
- # def update_output
- #   @output << line_one + "\n" + line_two + "\n" + line_three + "\n"
- # end
+lines_of_braille = File.new('./lib/original_message.txt', 'w')
+lines_of_braille.puts(translate_to_english.LAST METHOD GOES HERE ONCE COMPLETE
 
+lines_of_braille.close
 
-end
+puts "Created #{ARGV[1]} containing #{num_of_characters} characters."

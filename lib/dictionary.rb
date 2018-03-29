@@ -44,7 +44,7 @@ class Dictionary
   end
 
   def number_of_keys
-   @library.length
+    @library.length
   end
 
   def class_check
