@@ -14,9 +14,9 @@ class TranslateToEnglish
   end
 
   def get_key
-    @braille.map do |braille|
-      @dictionary.library
-    end
+      @braille.map do |braille|
+      @dictionary.library.key(@braille)
+    end.join.squeeze
   end
 
 
