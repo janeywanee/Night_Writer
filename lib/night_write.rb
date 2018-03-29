@@ -14,4 +14,11 @@ lines_of_text.puts(translate_to_braille.update_output)
 
 lines_of_text.close
 
-puts "Created #{ARGV[1]} containing #{num_of_characters} characters."
+
+  def update_output
+     output = "#{line_one}\n#{line_two}\n#{line_three}"
+  end
+
+end
+=======
+
