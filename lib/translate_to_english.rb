@@ -19,10 +19,4 @@ class TranslateToEnglish
     end.join.squeeze
   end
 
-
-  #
-  # def to_english
-  #   @braille.map do |braille|
-  #     @dictionary.library[braille]
-
 end
