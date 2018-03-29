@@ -20,5 +20,5 @@ lines_of_text.close
   end
 
 end
-=======
 
+puts "Created #{ARGV[1]} containing #{num_of_characters} characters."
