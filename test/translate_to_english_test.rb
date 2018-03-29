@@ -26,7 +26,4 @@ class TranslateToEnglishTest < MiniTest::Test
     translate_to_english = TranslateToEnglish.new(["0.", "..", ".."],[".0","00","0."])
     assert_equal "at", translate_to_english.get_key
   end
-
-
-
 end
